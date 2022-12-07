@@ -1,35 +1,22 @@
 import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className='App'>
+    <BrowserRouter>
       <div>
-        <a href='https://vitejs.dev' target='_blank'>
-          <img src='/vite.svg' className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://reactjs.org' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
+        <Helmet>
+          <title>Vite App</title>
+        </Helmet>
+        <Navbar />
       </div>
-      <h1>Hello World</h1>
-      <h2>Vite + React</h2>
-
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    </BrowserRouter>
   );
 }
 
